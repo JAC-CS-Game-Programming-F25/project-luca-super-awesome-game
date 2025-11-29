@@ -1,6 +1,6 @@
 # Final Project
 
--   [ ] Read the [project requirements](https://vikramsinghmtl.github.io/420-5P6-Game-Programming/project/requirements).
+-   [x] Read the [project requirements](https://vikramsinghmtl.github.io/420-5P6-Game-Programming/project/requirements).
 -   [ ] Replace the sample proposal below with the one for your game idea.
 -   [ ] Get the proposal greenlit by Vik.
 -   [ ] Place any assets in `assets/` and remember to update `src/config.json`.
@@ -10,108 +10,139 @@
 
 ---
 
-# Sample Proposal - Pokémon the Trading Card Game
-
-> [!note]
-> This was taken from a project I did in university so the scope is **much** larger than what I'm expecting from you in terms of number of features!
+# **Greynought** - Luca Bousette
 
 ## ✒️ Description
 
-In this turn-based battle card game, players assume the role of a Pokémon trainer and use their Pokémon to battle their opponent's Pokémon. Players play Pokémon to the field and attack their opponent's Pokémon. A Pokémon that has sustained enough damage is Knocked Out, and the player who knocked it out draws a Prize card. There are usually six Prize cards, and the primary win condition is to draw all of them. Other ways to win are by knocking out all the Pokémon the opponent has on the field so that the opponent has none left, or if at the beginning of their opponent's turn there are no cards left to draw in the opponent's deck.
+In this platformer, users will go dungeon by dungeon blowing up enemies and completing the levels as fast as they can! If they complete every single dungeon they can add their score to the leaderboard, where all their scores are added together.
 
 ## 🕹️ Gameplay
+>I  really want to focus on the customization and combat of *Terraria* with the movement and level design of *Super Metroid*, so the main focuses are on the weapon choices and obstacles
 
-Players begin by having one player select heads or tails, and the other flips a coin; the winner of the coin flip will decide who goes first or second. The player going first cannot attack their first turn, unless the card says otherwise. (Dice may be used in place of coins, with even numbers representing heads and odd numbers representing tails). Players then shuffle their decks and draw seven cards, then play one Basic Pokémon onto the field. This Pokémon is known as the Active Pokémon and is usually the one that attacks and receives damage. If a player does not have any Basic Pokémon, they must shuffle and draw a new hand, and the opponent may draw one additional card. Once both players have at least one Basic Pokémon, they can play up to five more Basic Pokémon onto their "Bench" (representing the maximum-carry limit of six from the video games). Players then take the top six cards of their deck and place them to the side as Prize Cards. Play then begins with the player who won the coin flip.
+Before the player begins by choosing a **weapon**, this weapon is attached to the arm of the player that functions (besides the movement) independantly from the rest of the player. A weapon is used by aiming with your mouse / touchpad and then clicking the left-click / primary-click to fire. The three choices are:  
 
-Play alternates between players who may take several actions during their turn, including playing new Basic Pokémon, evolving their Pokémon, playing Trainer cards and Energy cards, and using Pokémon Abilities. A player may also retreat their Active Pokémon, switching the Active Pokémon with one on the Bench. At the end of their turn, a player may use one of their Active Pokémon's attacks, provided the prerequisite amount and types of Energy are attached to that Pokémon. Effects from that attack are then activated and damage may be placed on the Defending Pokémon; some attacks simply have effects but do not do damage. Damage may be modified depending on whether the defender has a weakness or a resistance to the attacker's Pokémon type. If the final damage exceeds the defending Pokémon's HP, it is Knocked Out, and the active player takes a prize card and ends their turn.
+1. **Projectile:** Shoots a new physical object that damages an enemy if it interacts with it, Projectile bounces off walls and dissapears after it hits an enemy or after a small amount of time. Medium range, medium cooldown, medium damage.
+2. **Hitscan Blast:** Checks a certain range infront of user, if an enemy is in that range it damages them. Short Range, short cooldown, High Damage.
+3. **Hitscan Laser:** Shoots a straight blast infront of it that damages anything it interacts with. High range, High cooldown, low damage.
 
-This implementation of _Pokémon the Trading Card Game_ is a single player experience with an AI. The game is played primarily with the mouse to interact with the cards and general GUI. The players can optionally hit `M` on their keyboard to mute all game sounds.
+After the player begins **movemement** is standard WASD / Movement Keys (plus spacebar for jumping), also if shift is being held it'll speed the player's movements up. Players need to becareful of their **healthbar**, as many things can bring it down, however after being hit players gain a small quick invincibility cooldown before they can take damage again. While adventuring through rooms and levels players need to be pay attention to two things to keep that health bar from going to zero: **Traps** and **Enemies**. there are three types of traps:
+
+1. **Spikes:** Damages player but doesn't instantly kill them
+2. **Moving Platforms:** simple platforms that move back and forth
+3. **Bounce Pads:** Increases the players vertical velocity tremendously
+
+Enemies are more hazardous as they are gunning for your character, once a user enters their range they will beggining attacking you. The two types of enemies are:
+
+1. **Lobber:** Stationary enemy that's AI simply throws small projectiles at user with a medium lengthed cooldown with a long range
+2. **Chaser:** Chases The user, if they hit a wall they will hop over it. Their AI is not intelligent, just moving in whatever direction the user is, if a user gets in their short range does a strong attack. Short cooldown and a short range
+
+>the chaser enemy is nice-to-have, not mandatory for the game to count as "complete"
+
+To help against these enemies, randomly a room will turn out to be a shop where you can trade your coins for an item. The three **items** to aid the user through the dungeons:
+
+1. **Health Up:** Increases the players health
+2. **Disable Cooldown:** Turns Off The Cooldown for weapons for a couple seconds
+3. **Temporary Invincibility:** Activates the player invincibility for a longer period of time
+
+>the Items are a nice-to-have, not mandatory for the game to count as "complete"
+
+Finally if users make it far enough they'll start to see **Mini Bosses** and eventually, **the final Boss**. the mini boss is a larger enemy that has two abilities, to shoot a large beam straight and throw ballistic balls into the air that hit the floor. The Final Boss chases the player though a room, if the player touches the final boss they die instantly. Besides that the player needs to avoid the final bosses fireballs and rocks falling from the sky.
+
+>the bosses are nice-to-have, not mandatory for the game to count as "complete"
+
+This implementation is a combination of Super Metroid's movement and levels with more Terraria style combat and randomness.
 
 ## 📃 Requirements
 
-> [!note]
-> This was a web project so that's why you'll see requirements about logging in and uploading data which for you is irrelevant. Focus more on the requirements describing actions taken for gameplay.
+> I only included the things that I have stated to be mandatory for the game to count as complete, anything that is not here should but I have mentioned is a "Nice-To-Have".
 
-1. The user shall register to be able to login.
-2. The user shall login to be able to play a game.
-3. The user shall upload a valid deck file.
-4. The user shall upload a valid cards file.
-5. The user shall upload a valid abilities file.
-6. The user shall select which deck they will use in the game.
-7. The user shall select which deck the AI will use in the game.
-8. The system shall "flip a coin" to decide which player goes first.
-9. The system shall shuffle the user's deck.
-10. The system shall draw the top 7 cards from the user's deck.
-11. If the user does not have a Basic Pokémon in their hand the system shall "mulligan" until they do.
-12. Upon each mulligan, the AI shall draw a card.
-13. The user shall put one of their Basic Pokémon face down as their Active Pokémon.
-14. The user shall put up to 5 more Basic Pokémon face down on their Bench.
-15. Upon a new turn, the system shall draw a card from the deck of the current player.
-16. Upon a new turn, the system shall place the drawn card in the hand of the current player.
-17. The user shall put (up to 5 total) Basic Pokémon cards from their hand onto their Bench.
-18. The user shall Evolve their Pokémon as many times as they choose.
-19. The user shall attach an Energy card from their hand to one of their Pokémon once per turn.
-20. The user shall play Trainer cards (as many as they want, but only one Supporter card and one Stadium card per turn).
-21. The user shall Retreat their Active Pokémon once per turn.
-22. The user shall use as many Abilities as they choose.
-23. The user shall attack the opponent's Active Pokémon.
-24. After a player attacks, the system shall end their turn and start their opponent's turn.
-25. The system shall execute any "special conditions" after a turn is over.
-26. The user shall pick a Victory Card when the opposing Active Pokémon dies.
+1. The user will open the leaderboard (to see what their fighting for!)
+2. The user will start the game
+3. The user will select one of three weapons
+4. A level will be generated that a user will load into (the amount of rooms increase as you go along, increasing the difficulty)
+5. A Timer will be started after the game is begun, next to an indicator to the amount of coins a user has collected
+6. The user will move around the room
+7. The enemies will attempt to attack the user, taking away from user's health
+8. Using the mouse to aim the user will shoot at the enemies
+9. Upon killing an enemy coins will drop that can be picked up by user
+11. User can go to the next room through a door
+12. Randomly, a room a user goes through might be a shop they can exchange coins for an item
+13. Once a user goes through the last door of the level the score is calculated and saved, with the User's health being full again
+14. Every third level the user's final room will be a mini boss fight
+15. On the tenth level it will just be the boss fight
+16. Once user completes level 10 all their scores will be added up
+17. Users score and chosen name will be displayed on the leaderboard
+18. User has the option to play again or exit
+
+## 🖼️ Diagrams
 
 ### 🤖 State Diagram
 
-> [!note]
-> Remember that you'll need diagrams for not only game states but entity states as well.
+>Game States
+![State Diagram](./Diagrams/StateDiagramGP.png)
 
-![State Diagram](./assets/images/StateDiagram.png)
+>Player States
+![State Diagram](./Diagrams/PlayerStatesDiagram.png)
+
+>Enemy States
+<br>
+>![State Diagram](./Diagrams/EnemyStateDiagram.png)
 
 ### 🗺️ Class Diagram
 
-![Class Diagram](./assets/images/ClassDiagram.png)
+![Class Diagram](./Diagrams/MermaidChartClassDiagram.png)
 
 ### 🧵 Wireframes
 
-> [!note]
-> Your wireframes don't have to be super polished. They can even be black/white and hand drawn. I'm just looking for a rough idea about what you're visualizing.
+![Screen WireFrames](./Diagrams/WireFrame.png)
 
-![Main Menu](./assets/images/Main-Menu.png)
+-   On title screen, clicking **START GAME** leads to the Selection screen, and on confirmation leads to the game
+- On title screen, clicking **LEADERBOARD** leads to the leaderboard screen, but you can only add your score after "winning" the game
+- On title screen, clicking **OPTIONS**, it leads to the options screen
+- On title screen, clicking **TUTORIAL** leads straight to the game screen with a preset map
+- on options screen, clicking the **CONTROLS** button leads to a popup that shows what the controls are (Also simple instructions on how to play the game if I run out of time for the tutorial mini-level)
+- on options screen, clicking the **BACK** button leads back to whatever screen you were on
+- on Controls popup, clicking the **CLOSE** button or leaving the options screen brings you back to the title screen
+- on leaderboard screen, clicking the **BACK** button or entering your name for a highsore will return you to the game screen
+- on the Game screen, **Winning** will lead to the leaderboard screen
+- on the Game screen, **Dying** will lead to the game over screen
+- on the Selection screen, **Select** will lead to the actual game starting
+- on the Game screen, pressing the **PAUSE** button will lead to the Pause screen
+- on the Pause screen, pressing the **CONTINUE** button will lead back to the game
+- on the Pause screen, pressing the **Options** button will lead to the Options Screen
+- on the Pause screen, pressing the **EXIT GAME** button will cloes the game
+- on the Game Over screen, pressing the **CONTINUE** button will lead to the game title screen
+- on the Game Over screen, pressing the **GIVE UP** button will close the game
 
--   _Let's Play_ will navigate to the main game.
--   _Upload Cards_ will navigation to the forms for uploading and parsing the data files for the game.
--   _Change Log_ will navigate the user to a page with a list of features/changes that have been implemented throughout the development of the game.
+### 🧃 Juice
 
-![Game Board](./assets/images/Game-Board.png)
+Taking off Terraria, I will be adding the dynamic lighting to the levels as well as particle effects with the weapons attacks.
 
-We want to keep the GUI as simple and clear as possible by having cards with relevant images to act as a way for the user to intuitively navigate the game. We want to implement a layout that would look like as if one were playing a match of the Pokémon Trading Card Game with physical cards in real life. Clicking on any of the cards will reveal that card's details to the player.
+- [Godot documentation for 2D dynamic lighting effects](https://docs.godotengine.org/en/stable/tutorials/2d/2d_lights_and_shadows.html)
+- [Godot documentation for particle effects](https://docs.godotengine.org/en/latest/tutorials/2d/particle_systems_2d.html)
+
+### 📲 Persistance
+
+The current state of your game will be saved so that whenever you close and reopen it you will continue where you left off. Also the leaderboard will be saved
 
 ### 🎨 Assets
 
-We used [app.diagrams.net](https://app.diagrams.net/) to create the wireframes. Wireframes are the equivalent to the skeleton of a web app since they are used to describe the functionality of the product and the users experience.
+My current plan is to make them myself, will my skills in pixel art  need improvement overall I am proficient enough to make them (as I've done with a couple of games before). However my back-up plan incase I don't forsee me having enough time to implement everything is to use some sprites from older games with similar mechanics and from free online resources or to reuse game sprites from an old but similar game.
 
-We plan on following trends already found in other trading card video games, such as Pokémon Trading Card Game Online, Hearthstone, Magic the Gathering Arena, and Gwent.
-
-The GUI will be kept simple and playful, as to make sure the game is easy to understand what each component does and is, as well as light hearted to keep to the Pokémon theme.
-
-#### 🖼️ Images
-
--   Most images will be used from the well known community driven wikipedia site, [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
--   Especially their [Trading Card Game section](<https://bulbapedia.bulbagarden.net/wiki/Full_Art_card_(TCG)>).
+- [Super Metroid Remake Sprites](https://www.spriters-resource.com/snes/smetroid/)
+- [Example of a free-to-use tileset from itch.io](https://free-game-assets.itch.io/free-industrial-zone-tileset-pixel-art)
+- [Alien Girl Time Loop - A game that I made for the GMTK 2025 Game Jam](https://baguettenier.itch.io/alien-girl-time-loop)
 
 #### ✏️ Fonts
 
-For fonts, a simple sans-serif like Roboto will look quite nice. It's a font that is legible, light on storage size, and fun to keep with the theme we're going for. We also used a more cartoonish Pokemon font for the title screen.
+While I haven't decided on the specific font yet it I will use this resource to pick the font I will use
 
--   [Pokemon](https://www.dafont.com/pokemon.font)
--   [Roboto](https://fonts.google.com/specimen/Roboto)
+- [Google Fonts - website for getting custom fonts](https://fonts.google.com/)
 
 #### 🔊 Sounds
 
-All sounds were taken from [freesound.org](https://freesound.org) for the actions pertaining to cards.
+I am planning on using music from creators that have given me permission / allow their music to be used for free. Also all the sound effects will be free-to-use as well
 
--   [Shuffle cards](https://freesound.org/people/VKProduktion/sounds/217502/)
--   [Flip card](https://freesound.org/people/Splashdust/sounds/84322/)
-
-### 📚 References
-
--   [Pokemon Rulebook](http://assets.pokemon.com/assets/cms2/pdf/trading-card-game/rulebook/xy8-rulebook-en.pdf)
+- [AdhesiveWombat - allows use if project is not commercial](https://soundcloud.com/adhesivewombat)
+- [Oliver Kachani - personal friend of mine whos allowed me to use their music for this project](https://open.spotify.com/artist/60N4KqNnfG1Z0pI6YethWG?si=qKLn0PtDSuKUScym0wl-cw)
+- [Sonniss - this is royalty-free sound effects, their are many platforms like this that I could also get the sounds off of](https://sonniss.com/gameaudiogdc/)
