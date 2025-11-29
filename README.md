@@ -85,8 +85,7 @@ This implementation is a combination of Super Metroid's movement and levels with
 ![State Diagram](./Diagrams/PlayerStatesDiagram.png)
 
 >Enemy States
-<br>
->![State Diagram](./Diagrams/EnemyStateDiagram.png)
+![State Diagram](./Diagrams/EnemyStateDiagram.png)
 
 ### 🗺️ Class Diagram
 
