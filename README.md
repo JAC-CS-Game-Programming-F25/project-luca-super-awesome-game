@@ -48,7 +48,7 @@ To help against these enemies, randomly a room will turn out to be a shop where 
 
 Finally if users make it far enough they'll start to see **Mini Bosses** and eventually, **the final Boss**. the mini boss is a larger enemy that has two abilities, to shoot a large beam straight and throw ballistic balls into the air that hit the floor. The Final Boss chases the player though a room, if the player touches the final boss they die instantly. Besides that the player needs to avoid the final bosses fireballs and rocks falling from the sky.
 
->the bosses are nice-to-have, not mandatory for the game to count as "complete"
+>the bosses and mini-bosses are nice-to-have, not mandatory for the game to count as "complete"
 
 This implementation is a combination of Super Metroid's movement and levels with more Terraria style combat and randomness.
 
@@ -95,7 +95,7 @@ This implementation is a combination of Super Metroid's movement and levels with
 
 ![Screen WireFrames](./Diagrams/WireFrame.png)
 
--   On title screen, clicking **START GAME** leads to the Selection screen, and on confirmation leads to the game
+- On title screen, clicking **START GAME** leads to the Selection screen, and on confirmation leads to the game
 - On title screen, clicking **LEADERBOARD** leads to the leaderboard screen, but you can only add your score after "winning" the game
 - On title screen, clicking **OPTIONS**, it leads to the options screen
 - On title screen, clicking **TUTORIAL** leads straight to the game screen with a preset map
