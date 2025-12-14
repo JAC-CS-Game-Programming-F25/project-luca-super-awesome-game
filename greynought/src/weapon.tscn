@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=3 uid="uid://beoel85ghj4jn"]
+
+[ext_resource type="Script" uid="uid://uanqweghiigw" path="res://src/weapons/weapon.gd" id="1_iymim"]
+[ext_resource type="Script" uid="uid://b1j2yhwvekasj" path="res://lib/state_machine.gd" id="2_w0tex"]
+[ext_resource type="Texture2D" uid="uid://djbfxvqhfnn6a" path="res://assets/Blasters/Blaster_Cooldown.png" id="3_q24d8"]
+[ext_resource type="Texture2D" uid="uid://bqldn0kbyebgm" path="res://assets/Blasters/Blaster_Damaged.png" id="4_6cmx2"]
+[ext_resource type="Texture2D" uid="uid://b0lgkcfvdekt0" path="res://assets/Blasters/Blaster_Idle.png" id="5_j5syt"]
+[ext_resource type="Texture2D" uid="uid://ck5hxan1g2ela" path="res://assets/Blasters/Blaster_Power-Up.png" id="6_ff8w7"]
+[ext_resource type="Texture2D" uid="uid://djcxjdgshvu08" path="res://assets/Blasters/Blaster_Shooting.png" id="7_khggt"]
+[ext_resource type="Texture2D" uid="uid://cl5cos2igqty8" path="res://assets/Blasters/Blaster_Walled.png" id="8_7e2dh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yrxi"]
+atlas = ExtResource("3_q24d8")
+region = Rect2(0, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysmu5"]
+atlas = ExtResource("3_q24d8")
+region = Rect2(120, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da8hw"]
+atlas = ExtResource("4_6cmx2")
+region = Rect2(0, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1fqq"]
+atlas = ExtResource("4_6cmx2")
+region = Rect2(120, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui2p7"]
+atlas = ExtResource("4_6cmx2")
+region = Rect2(240, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6bnc"]
+atlas = ExtResource("5_j5syt")
+region = Rect2(0, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl3nb"]
+atlas = ExtResource("6_ff8w7")
+region = Rect2(0, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n71pd"]
+atlas = ExtResource("6_ff8w7")
+region = Rect2(120, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q180"]
+atlas = ExtResource("6_ff8w7")
+region = Rect2(240, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33koy"]
+atlas = ExtResource("7_khggt")
+region = Rect2(0, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byu5a"]
+atlas = ExtResource("7_khggt")
+region = Rect2(120, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvwwc"]
+atlas = ExtResource("7_khggt")
+region = Rect2(240, 0, 120, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoyln"]
+atlas = ExtResource("8_7e2dh")
+region = Rect2(0, 0, 120, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iphtt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yrxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysmu5")
+}],
+"loop": true,
+"name": &"weapon-cooldown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da8hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1fqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui2p7")
+}],
+"loop": true,
+"name": &"weapon-damaged",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6bnc")
+}],
+"loop": true,
+"name": &"weapon-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl3nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n71pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q180")
+}],
+"loop": true,
+"name": &"weapon-power-up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33koy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byu5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvwwc")
+}],
+"loop": true,
+"name": &"weapon-shooting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoyln")
+}],
+"loop": true,
+"name": &"weapon-wall-interaction",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmnm0"]
+size = Vector2(19, 4)
+
+[node name="weapon" type="Node2D"]
+script = ExtResource("1_iymim")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("2_w0tex")
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-43, -9)
+sprite_frames = SubResource("SpriteFrames_iphtt")
+animation = &"weapon-cooldown"
+frame_progress = 0.776183
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(-74.5, -12)
+shape = SubResource("RectangleShape2D_lmnm0")
