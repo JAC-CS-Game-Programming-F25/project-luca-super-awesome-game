@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://beoel85ghj4jn"]
+[gd_scene load_steps=44 format=3 uid="uid://beoel85ghj4jn"]
 
 [ext_resource type="Script" uid="uid://uanqweghiigw" path="res://src/weapons/weapon.gd" id="1_iymim"]
 [ext_resource type="Script" uid="uid://b1j2yhwvekasj" path="res://lib/state_machine.gd" id="2_w0tex"]
@@ -14,12 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://6kg8hcv46ict" path="res://assets/Guns/Shooter_Power-Up.png" id="12_smrik"]
 [ext_resource type="Texture2D" uid="uid://bu3r7fwhnyjqx" path="res://assets/Guns/Shooter_Shooting.png" id="13_5ra5y"]
 [ext_resource type="Texture2D" uid="uid://c853s1w3osypy" path="res://assets/Guns/Shooter_Walled.png" id="14_22nsj"]
-[ext_resource type="Texture2D" uid="uid://bxwic4eddjun8" path="res://assets/Guns/Shocker_Cooldown.png" id="15_n3nf7"]
-[ext_resource type="Texture2D" uid="uid://bxl8i5mitlecp" path="res://assets/Guns/Shocker_Damaged.png" id="16_783x4"]
-[ext_resource type="Texture2D" uid="uid://ck0m48ihu1t3n" path="res://assets/Guns/Shocker_Idle.png" id="17_2e5ss"]
-[ext_resource type="Texture2D" uid="uid://cy368ypctkm8e" path="res://assets/Guns/Shocker_Power-Up.png" id="18_5w13k"]
-[ext_resource type="Texture2D" uid="uid://br1wuys6pqxf1" path="res://assets/Guns/Shocker_Shooting.png" id="19_uq1k7"]
-[ext_resource type="Texture2D" uid="uid://cwd2fh3o5nxrp" path="res://assets/Guns/Shocker_Walled.png" id="20_u5sje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmnm0"]
 size = Vector2(19, 4)
@@ -272,130 +266,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ciyke"]
-atlas = ExtResource("15_n3nf7")
-region = Rect2(0, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3dln"]
-atlas = ExtResource("15_n3nf7")
-region = Rect2(120, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0kqh7"]
-atlas = ExtResource("16_783x4")
-region = Rect2(0, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eqhhn"]
-atlas = ExtResource("16_783x4")
-region = Rect2(120, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2rn2"]
-atlas = ExtResource("16_783x4")
-region = Rect2(240, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcpv1"]
-atlas = ExtResource("17_2e5ss")
-region = Rect2(0, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjivg"]
-atlas = ExtResource("18_5w13k")
-region = Rect2(0, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_60bbj"]
-atlas = ExtResource("18_5w13k")
-region = Rect2(120, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4ylm"]
-atlas = ExtResource("18_5w13k")
-region = Rect2(240, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq13d"]
-atlas = ExtResource("19_uq1k7")
-region = Rect2(0, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_anshy"]
-atlas = ExtResource("19_uq1k7")
-region = Rect2(120, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qas5a"]
-atlas = ExtResource("19_uq1k7")
-region = Rect2(240, 0, 120, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wjp71"]
-atlas = ExtResource("20_u5sje")
-region = Rect2(0, 0, 120, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e2j70"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ciyke")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3dln")
-}],
-"loop": true,
-"name": &"weapon-cooldown",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0kqh7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eqhhn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y2rn2")
-}],
-"loop": false,
-"name": &"weapon-damaged",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wcpv1")
-}],
-"loop": false,
-"name": &"weapon-idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xjivg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_60bbj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u4ylm")
-}],
-"loop": false,
-"name": &"weapon-power-up",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq13d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_anshy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qas5a")
-}],
-"loop": false,
-"name": &"weapon-shooting",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wjp71")
-}],
-"loop": false,
-"name": &"weapon-wall-interaction",
-"speed": 5.0
-}]
-
 [node name="weapon" type="Node2D"]
 script = ExtResource("1_iymim")
 
@@ -413,7 +283,7 @@ texture_filter = 1
 position = Vector2(-43, -9)
 sprite_frames = SubResource("SpriteFrames_iphtt")
 animation = &"weapon-cooldown"
-frame_progress = 0.40803
+frame_progress = 0.163889
 
 [node name="BlastSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -421,8 +291,5 @@ position = Vector2(-43, -9)
 sprite_frames = SubResource("SpriteFrames_ciyke")
 animation = &"weapon-cooldown"
 
-[node name="LaserSprite" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-43, -9)
-sprite_frames = SubResource("SpriteFrames_e2j70")
-animation = &"weapon-cooldown"

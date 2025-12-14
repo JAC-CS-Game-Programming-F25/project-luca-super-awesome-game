@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkmxwc5new8xi"]
+
+[ext_resource type="Texture2D" uid="uid://b3n2puygwbr46" path="res://assets/Guns/Shooter_Bullet.png" id="1_e54xe"]
+[ext_resource type="Script" uid="uid://bmwwxw704u0b3" path="res://src/weapons/blast.gd" id="1_l5868"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nsg3"]
+atlas = ExtResource("1_e54xe")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7jdf"]
+atlas = ExtResource("1_e54xe")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqdle"]
+atlas = ExtResource("1_e54xe")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpfv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nsg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7jdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqdle")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5868"]
+size = Vector2(94, 58)
+
+[node name="Blast" type="Area2D"]
+script = ExtResource("1_l5868")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = -3.14159
+sprite_frames = SubResource("SpriteFrames_xpfv5")
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 0)
+shape = SubResource("RectangleShape2D_l5868")

@@ -413,7 +413,7 @@ texture_filter = 1
 position = Vector2(-43, -9)
 sprite_frames = SubResource("SpriteFrames_iphtt")
 animation = &"weapon-cooldown"
-frame_progress = 0.40803
+frame_progress = 0.0804033
 
 [node name="BlastSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

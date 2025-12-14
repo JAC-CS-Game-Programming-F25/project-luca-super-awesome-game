@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8do615y33nx1"]
 
-[ext_resource type="Texture2D" uid="uid://bcinqxw86u7tq" path="res://assets/Blasters/Blaster_Bullet.png" id="1_2klnc"]
+[ext_resource type="Texture2D" uid="uid://bcinqxw86u7tq" path="res://assets/Guns/Blaster_Bullet.png" id="1_2klnc"]
 [ext_resource type="Script" uid="uid://dbxsneko8bov7" path="res://src/weapons/projectile.gd" id="1_dve2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dve2u"]
