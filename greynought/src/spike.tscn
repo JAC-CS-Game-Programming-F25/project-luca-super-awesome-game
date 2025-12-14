@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ppegqxq08dl"]
+
+[ext_resource type="Texture2D" uid="uid://f8umexjlpx4v" path="res://assets/tilesets/tileset.png" id="1_8ryga"]
+[ext_resource type="Script" uid="uid://hubfgt18yxog" path="res://src/traps/spike.gd" id="1_flp6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suxqa"]
+size = Vector2(36, 48)
+
+[node name="Spike" type="Area2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_flp6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_8ryga")
+hframes = 8
+vframes = 4
+frame = 16
+
+[node name="Hit" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_suxqa")

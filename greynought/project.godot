@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Greynought"
-run/main_scene="uid://bydwyk4r3je8m"
+run/main_scene="uid://0h8fd7w87hss"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+player=""
 
 [input]
 

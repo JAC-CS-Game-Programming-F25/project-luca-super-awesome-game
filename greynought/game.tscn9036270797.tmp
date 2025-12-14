@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0h8fd7w87hss"]
+
+[ext_resource type="Script" uid="uid://bn7qrdg7k2bc1" path="res://src/play/game.gd" id="1_80nbo"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_80nbo")

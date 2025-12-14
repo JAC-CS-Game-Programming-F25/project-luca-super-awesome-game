@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
+signal died
+
 # Constants
 const SPEED = 400.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -800.0
 const GRAVITY = 980.0
 
 # Player stats
@@ -13,7 +15,7 @@ var invincible_timer: float = 0.0
 # References
 @onready var body_sprites = $BodySprite
 @onready var state_machine = $StateMachine
-@onready var weapon = $Weapon
+@onready var weapon = $weapon
 
 func _ready():
 	# Add all states
@@ -63,6 +65,8 @@ func take_damage(amount: int, damage_direction: int = -1):
 		if health <= 0:
 			state_machine.change(PlayerStates.DEAD)
 			weapon.state_machine.change(WeaponStates.DEAD)
+			
+			died.emit()
 
 func activate_invincible(duration: float):
 	invincible_timer = duration

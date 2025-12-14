@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bydwyk4r3je8m"]
+[gd_scene load_steps=6 format=3 uid="uid://bydwyk4r3je8m"]
 
 [ext_resource type="PackedScene" uid="uid://ctsoppnbfoarx" path="res://src/player.tscn" id="1_a2ug0"]
+[ext_resource type="PackedScene" uid="uid://d1ppegqxq08dl" path="res://src/spike.tscn" id="2_osw1l"]
+[ext_resource type="PackedScene" uid="uid://c65umsfa7f6ci" path="res://src/moving_platform.tscn" id="3_dm202"]
+[ext_resource type="PackedScene" uid="uid://5xprn4exk68d" path="res://src/jump_pad.tscn" id="4_jm2xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ug0"]
 size = Vector2(483, 20)
@@ -11,6 +14,8 @@ size = Vector2(483, 20)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(-44, 164)
+collision_layer = 2
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(48, -56)
@@ -21,3 +26,14 @@ offset_left = -194.0
 offset_top = -67.0
 offset_right = 289.0
 offset_bottom = -45.0
+
+[node name="Spike" parent="." instance=ExtResource("2_osw1l")]
+position = Vector2(-114, 69)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_dm202")]
+position = Vector2(318, 104)
+move_distance = 500.0
+move_duration = 2.0
+
+[node name="JumpPad" parent="." instance=ExtResource("4_jm2xb")]
+position = Vector2(134, 70)

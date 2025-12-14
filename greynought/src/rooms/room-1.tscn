@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=4 uid="uid://csxuktetxsh62"]
+
+[ext_resource type="Script" uid="uid://bsqm81xgp44gx" path="res://src/play/room.gd" id="1_xp70o"]
+[ext_resource type="Texture2D" uid="uid://f8umexjlpx4v" path="res://assets/tilesets/tileset.png" id="2_hmmqy"]
+[ext_resource type="PackedScene" uid="uid://d1ppegqxq08dl" path="res://src/spike.tscn" id="3_82mrh"]
+[ext_resource type="PackedScene" uid="uid://c65umsfa7f6ci" path="res://src/moving_platform.tscn" id="4_kh1cx"]
+[ext_resource type="PackedScene" uid="uid://ixr1pcv8g4ks" path="res://door.tscn" id="5_kqo6r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ed05"]
+texture = ExtResource("2_hmmqy")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_82mrh"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 15
+sources/0 = SubResource("TileSetAtlasSource_2ed05")
+
+[node name="Room-1" type="Node2D"]
+script = ExtResource("1_xp70o")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AADz/wAAAAAEAAAAAAD0/wAAAAABAAAAAAD1/wAAAAABAAAAAAD2/wAAAAABAAAAAAD3/wAAAAABAAAAAAD4/wAAAAABAAAAAAD5/wAAAAABAAAAAAD6/wAAAAABAAAAAAD7/wAAAAABAAAAAAD8/wAAAAABAAAAAAD9/wAAAAABAAAAAAD+/wAAAAABAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAADz////AAAEAAAAAADz//7/AAAEAAAAAADz//3/AAAEAAAAAADz//z/AAAEAAAAAADz//v/AAAEAAAAAADz//r/AAAEAAAAAADz//n/AAAEAAAAAAD0//7/AAAGAAAAABD0////AAAGAAEAABA=")
+tile_set = SubResource("TileSet_82mrh")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(-456, -96)
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Spike" parent="Traps" instance=ExtResource("3_82mrh")]
+position = Vector2(-324, -25)
+
+[node name="MovingPlatform" parent="Traps" instance=ExtResource("4_kh1cx")]
+position = Vector2(-189, -126)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="." instance=ExtResource("5_kqo6r")]
+position = Vector2(224, -50)
