@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://5xprn4exk68d"]
+
+[ext_resource type="Script" uid="uid://d3rhprnm75fyj" path="res://src/traps/jump_pad.gd" id="1_cysje"]
+[ext_resource type="Texture2D" uid="uid://f8umexjlpx4v" path="res://assets/tilesets/tileset.png" id="2_dd87t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7ut2"]
+atlas = ExtResource("2_dd87t")
+region = Rect2(200, 100, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hls3s"]
+atlas = ExtResource("2_dd87t")
+region = Rect2(300, 100, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeeh7"]
+atlas = ExtResource("2_dd87t")
+region = Rect2(200, 100, 100, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipo01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7ut2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hls3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7ut2")
+}],
+"loop": false,
+"name": &"jumppad-active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeeh7")
+}],
+"loop": true,
+"name": &"jumppad-idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgt2d"]
+size = Vector2(66, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cysje"]
+size = Vector2(62, 3)
+
+[node name="JumpPad" type="StaticBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_cysje")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ipo01")
+animation = &"jumppad-idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_dgt2d")
+debug_color = Color(0.907616, 0.235979, 0.479895, 0.42)
+
+[node name="LaunchArea" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaunchArea"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_cysje")

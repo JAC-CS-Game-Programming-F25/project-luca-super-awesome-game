@@ -5,7 +5,7 @@ var invincibility_timer: float = 0.0
 const INVINCIBILITY_DURATION: float = 2.0
 
 func enter(parameters: Dictionary = {}):
-	weapon.weapon_sprite.play(WeaponStates.INVINCIBLE)
+	weapon.weapon_sprite.play(WeaponStates.IDLE)
 	invincibility_timer = 0.0
 
 func update(delta: float):

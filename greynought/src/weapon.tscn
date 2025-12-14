@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ui2p7")
 }],
-"loop": true,
+"loop": false,
 "name": &"weapon-damaged",
 "speed": 10.0
 }, {
@@ -92,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l6bnc")
 }],
-"loop": true,
+"loop": false,
 "name": &"weapon-idle",
 "speed": 5.0
 }, {
@@ -106,7 +106,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1q180")
 }],
-"loop": true,
+"loop": false,
 "name": &"weapon-power-up",
 "speed": 10.0
 }, {
@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hvwwc")
 }],
-"loop": true,
+"loop": false,
 "name": &"weapon-shooting",
 "speed": 10.0
 }, {
@@ -128,7 +128,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qoyln")
 }],
-"loop": true,
+"loop": false,
 "name": &"weapon-wall-interaction",
 "speed": 5.0
 }]
@@ -146,8 +146,7 @@ script = ExtResource("2_w0tex")
 texture_filter = 1
 position = Vector2(-43, -9)
 sprite_frames = SubResource("SpriteFrames_iphtt")
-animation = &"weapon-cooldown"
-frame_progress = 0.776183
+animation = &"weapon-shooting"
 
 [node name="CollisionArea" type="Area2D" parent="."]
 
