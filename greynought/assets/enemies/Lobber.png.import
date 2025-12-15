@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck5hxan1g2ela"
-path="res://.godot/imported/Blaster_Power-Up.png-ade2fb57ff8f1ac20993bcb0f78ddd4b.ctex"
+uid="uid://dyxf5832jlqgb"
+path="res://.godot/imported/Lobber.png-ae5f9c0bb9be72ba69f4f86fa8ee121e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blasters/Blaster_Power-Up.png"
-dest_files=["res://.godot/imported/Blaster_Power-Up.png-ade2fb57ff8f1ac20993bcb0f78ddd4b.ctex"]
+source_file="res://assets/enemies/Lobber.png"
+dest_files=["res://.godot/imported/Lobber.png-ae5f9c0bb9be72ba69f4f86fa8ee121e.ctex"]
 
 [params]
 

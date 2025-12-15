@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djbfxvqhfnn6a"
-path="res://.godot/imported/Blaster_Cooldown.png-ec8267ce74dc2893dca05b940ce48176.ctex"
+uid="uid://b0lgkcfvdekt0"
+path="res://.godot/imported/Blaster_Idle.png-610e8e441365c4455348078d0f4f0957.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blasters/Blaster_Cooldown.png"
-dest_files=["res://.godot/imported/Blaster_Cooldown.png-ec8267ce74dc2893dca05b940ce48176.ctex"]
+source_file="res://assets/Guns/Blaster_Idle.png"
+dest_files=["res://.godot/imported/Blaster_Idle.png-610e8e441365c4455348078d0f4f0957.ctex"]
 
 [params]
 

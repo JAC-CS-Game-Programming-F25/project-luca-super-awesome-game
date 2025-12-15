@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://csxuktetxsh62"]
+[gd_scene load_steps=9 format=4 uid="uid://csxuktetxsh62"]
 
 [ext_resource type="Script" uid="uid://bsqm81xgp44gx" path="res://src/play/room.gd" id="1_xp70o"]
 [ext_resource type="Texture2D" uid="uid://f8umexjlpx4v" path="res://assets/tilesets/tileset.png" id="2_hmmqy"]
 [ext_resource type="PackedScene" uid="uid://d1ppegqxq08dl" path="res://src/spike.tscn" id="3_82mrh"]
 [ext_resource type="PackedScene" uid="uid://c65umsfa7f6ci" path="res://src/moving_platform.tscn" id="4_kh1cx"]
 [ext_resource type="PackedScene" uid="uid://ixr1pcv8g4ks" path="res://door.tscn" id="5_kqo6r"]
+[ext_resource type="PackedScene" uid="uid://buqk6r1r5uxk4" path="res://lobber.tscn" id="6_kh1cx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ed05"]
 texture = ExtResource("2_hmmqy")
@@ -79,3 +80,8 @@ position = Vector2(-189, -126)
 
 [node name="Door" parent="." instance=ExtResource("5_kqo6r")]
 position = Vector2(224, -50)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Lobber" parent="Enemies" instance=ExtResource("6_kh1cx")]
+position = Vector2(152, -50)
