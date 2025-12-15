@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://buqk6r1r5uxk4"]
+
+[ext_resource type="Script" uid="uid://dt75jsgo0rh3x" path="res://src/enemy/lobber.gd" id="1_bydqs"]
+[ext_resource type="Texture2D" uid="uid://dyxf5832jlqgb" path="res://assets/enemies/Lobber.png" id="1_nwmsk"]
+[ext_resource type="Texture2D" uid="uid://bnjtj5qxnak5q" path="res://assets/enemies/Lobber_Arm.png" id="2_bydqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m71d"]
+atlas = ExtResource("1_nwmsk")
+region = Rect2(150, 0, 75, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v35i5"]
+atlas = ExtResource("1_nwmsk")
+region = Rect2(225, 0, 75, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw3r2"]
+atlas = ExtResource("1_nwmsk")
+region = Rect2(0, 0, 75, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi6hg"]
+atlas = ExtResource("1_nwmsk")
+region = Rect2(75, 0, 75, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1sev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m71d")
+}],
+"loop": true,
+"name": &"lobber-activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v35i5")
+}],
+"loop": true,
+"name": &"lobber-active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw3r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi6hg")
+}],
+"loop": true,
+"name": &"lobber-idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxua5"]
+radius = 289.007
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l2m3"]
+atlas = ExtResource("2_bydqs")
+region = Rect2(0, 0, 100, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlay8"]
+atlas = ExtResource("2_bydqs")
+region = Rect2(0, 0, 100, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvk8t"]
+atlas = ExtResource("2_bydqs")
+region = Rect2(100, 0, 100, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d63qh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l2m3")
+}],
+"loop": true,
+"name": &"weapon-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlay8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvk8t")
+}],
+"loop": true,
+"name": &"weapon-shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpbdw"]
+size = Vector2(54, 94)
+
+[node name="Lobber" type="CharacterBody2D"]
+script = ExtResource("1_bydqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g1sev")
+animation = &"lobber-active"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_gxua5")
+
+[node name="Weapon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-18, 11)
+sprite_frames = SubResource("SpriteFrames_d63qh")
+animation = &"weapon-shooting"
+frame = 1
+frame_progress = 0.222222
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_fpbdw")
